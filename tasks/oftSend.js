@@ -1,4 +1,5 @@
 const CHAIN_ID = require("../constants/chainIds.json")
+const { waitForMessageReceived } = require("@layerzerolabs/scan-client")
 
 module.exports = async function (taskArgs, hre) {
     let signers = await ethers.getSigners()
@@ -28,9 +29,10 @@ module.exports = async function (taskArgs, hre) {
     const localContractInstance = await ethers.getContract(localContract)
 
     // quote fee with default adapterParams
-    let adapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 200000]) // default adapterParams example
+    // the following config doesn't have any impact, it's actually the default
+    // let adapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 200000]) // default adapterParams example
 
-    let fees = await localContractInstance.estimateSendFee(remoteChainId, toAddress, qty, false, adapterParams)
+    let fees = await localContractInstance.estimateSendFee(remoteChainId, toAddress, qty, false, "0x") //adapterParams )
     console.log(`fees[0] (wei): ${fees[0]} / (eth): ${ethers.utils.formatEther(fees[0])}`)
 
     let tx = await (
@@ -46,6 +48,12 @@ module.exports = async function (taskArgs, hre) {
         )
     ).wait()
     console.log(`✅ Message Sent [${hre.network.name}] sendTokens() to OFT @ LZ chainId[${remoteChainId}] token:[${toAddress}]`)
-    console.log(` tx: ${tx.transactionHash}`)
+    console.log(` tx: https://testnet.layerzeroscan.com/tx/${tx.transactionHash}`)
+
+    console.log(`waiting for message to be received on chain ${taskArgs.targetNetwork}...`)
+    const message = await waitForMessageReceived(CHAIN_ID[hre.network.name], tx.transactionHash)
+    console.log(" status:", message.status)
+    console.log(" destination tx:", message.dstTxHash)
+
     console.log(`* check your address [${owner.address}] on the destination chain, in the ERC20 transaction tab !"`)
 }
