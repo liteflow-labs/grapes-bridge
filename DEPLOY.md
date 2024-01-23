@@ -7,7 +7,7 @@
 ```bash
 npx hardhat --network bsc-testnet deploy --tags ProxyOFT
 
-npx hardhat --network bsc-testnet etherscan-verify
+npx hardhat --network bsc-testnet etherscan-verify --api-key XXX
 ```
 
 3. Deploy OFT on desired EVM chains
@@ -15,7 +15,7 @@ npx hardhat --network bsc-testnet etherscan-verify
 ```bash
 npx hardhat --network goerli deploy --tags OFT
 
-npx hardhat --network goerli etherscan-verify
+npx hardhat --network goerli etherscan-verify --api-key XXX
 ```
 
 4. Setup trust between contracts

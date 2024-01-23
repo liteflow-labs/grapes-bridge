@@ -179,12 +179,4 @@ module.exports = {
             accounts: accounts(),
         },
     },
-    etherscan: {
-        apiKey: {
-            ethereum: process.env.ETHERSCAN_API_KEY || "",
-            goerli: process.env.ETHERSCAN_API_KEY || "",
-            bsc: process.env.BSCSCAN_API_KEY || "",
-            bscTestnet: process.env.BSCSCAN_API_KEY || "",
-        },
-    },
 }
