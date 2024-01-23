@@ -12,7 +12,8 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
         from: deployer,
         args: [
             lzEndpointAddress,
-            "0x238c0917a3D9FD0D23Ba5CF5be72A5594B4C982E", // BSC testnet Grape NFT
+            // "0x238c0917a3D9FD0D23Ba5CF5be72A5594B4C982E", // BSC testnet Grape NFT
+            "0x555296de6A86E72752e5C5DC091FE49713Aa145C", // BSC Grape NFT
         ],
         log: true,
         waitConfirmations: 1,
