@@ -10,7 +10,7 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
 
     await deploy("OFT", {
         from: deployer,
-        args: ["Name", "Symbol", lzEndpointAddress, 0],
+        args: ["Grape coin", "GRAPE", lzEndpointAddress],
         log: true,
         waitConfirmations: 1,
     })
