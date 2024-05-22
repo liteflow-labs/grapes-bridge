@@ -107,6 +107,11 @@ module.exports = {
             chainId: 1,
             accounts: accounts(),
         },
+        sepolia: {
+            url: "https://eth-sepolia.g.alchemy.com/v2/demo", // Alchemy Public endpoint
+            chainId: 11155111,
+            accounts: accounts(),
+        },
         bsc: {
             url: "https://bsc-dataseed1.binance.org",
             chainId: 56,
