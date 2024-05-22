@@ -45,6 +45,7 @@ npx hardhat --network goerli oftSend --target-network bsc-testnet --qty 4 --loca
   - Premint wallet: `0x29bD48E4cB7562D660506Ff940365a76A8d407E3` (Nicolas at Liteflow)
 - ProxyOFT on BSC Testnet: `0x664939C92725B6eE0b8c9Ec32c61D76C65981f3A`
 - OFT on Goerli: `0xAd6377775Ea431bD6e69F8888cd2Bd5D03B1Fe6b`
+- OFT on Sepolia: `0xf3D767298CBaC0a9B48Bf0baDD6F259A61266161`
 
 # Mainnet deployment
 
